@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link, useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { logout } from '../store/actions/auth'
+import { logout } from '../actions/auth'
 
 const Nav = styled.nav`
    display: flex;

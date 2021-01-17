@@ -74,7 +74,7 @@ test('Should not login non exisitng user', async () => {
 
 test('Should not be able to change password without token', async () => {
    await request(app)
-      .patch('/changepassword')
+      .patch('/change-password')
       .send({
          oldPassword: '123456',
          password: '567890',
@@ -84,7 +84,7 @@ test('Should not be able to change password without token', async () => {
 
 test('Should not be able to change password with wrong old password with token', async () => {
    await request(app)
-      .patch('/changepassword')
+      .patch('/change-password')
       .set('x-auth-token', `${userOne.token}`)
       .send({
          oldPassword: '12345',
@@ -95,7 +95,7 @@ test('Should not be able to change password with wrong old password with token',
 
 test('Should be able to change password with token', async () => {
    await request(app)
-      .patch('/changepassword')
+      .patch('/change-password')
       .set('x-auth-token', `${userOne.token}`)
       .send({
          oldPassword: '123456',
@@ -106,11 +106,11 @@ test('Should be able to change password with token', async () => {
 
 test('Should get authenticated user with token', async () => {
    await request(app)
-      .get('/getuser')
+      .get('/get-user')
       .set('x-auth-token', `${userOne.token}`)
       .expect(200)
 })
 
 test('Should not get user without token', async () => {
-   await request(app).get('/getuser').expect(401)
+   await request(app).get('/get-user').expect(401)
 })

@@ -9,7 +9,7 @@ import {
 
 // Redux
 import { Provider } from 'react-redux'
-import store from './store/store'
+import store from './store'
 
 // Components
 import Navigation from './components/Navigation'
@@ -21,7 +21,10 @@ import Home from './components/Home'
 import ChangePassword from './components/ChangePassword'
 import NotFound from './components/NotFound'
 
-import { getAuthenticatedUser } from './store/actions/auth'
+import { getAuthenticatedUser } from './actions/auth'
+import setHeaders from './utils/setHeaders'
+
+setHeaders(localStorage.token)
 
 const Routing = () => {
    const history = useHistory()
@@ -35,7 +38,7 @@ const Routing = () => {
          <Route path='/home' component={Home} />
          <Route path='/register' component={Register} />
          <Route path='/settings' component={Settings} />
-         <Route path='/changepassword' component={ChangePassword} />
+         <Route path='/change-password' component={ChangePassword} />
          <Route component={NotFound} />
       </Switch>
    )

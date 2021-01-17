@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { getEmployees } from '../store/actions/employees'
+import { getEmployees } from '../actions/employees'
 
 const Header = styled.h2`
    text-align: center;

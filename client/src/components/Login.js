@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link, useHistory, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { setAlert } from '../store/actions/alert'
-import { login } from '../store/actions/auth'
+import { setAlert } from '../actions/alert'
+import { login } from '../actions/auth'
 
 const Card = styled.div`
    position: relative;

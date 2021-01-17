@@ -1,10 +1,9 @@
-const express = require('express')
-const router = express.Router()
-const Employee = require('../models/employees')
-const auth = require('../middleware/auth')
+const sendResponse = require('../../../utils/sendResponse')
+const sendError = require('../../../utils/sendError')
+const { SUCCESS } = require('../../../utils/statusCodes')
+const Employee = require('../../../models/employees')
 
-// Get employees
-router.patch('/getemployees', [auth], async (req, res) => {
+module.exports = async (req, res) => {
    try {
       let { skipCount, search, filterValue } = req.body
 
@@ -70,11 +69,8 @@ router.patch('/getemployees', [auth], async (req, res) => {
          }
       }
 
-      res.json({ totalEmployeeCount, employees })
+      sendResponse(res, SUCCESS, { totalEmployeeCount, employees })
    } catch (err) {
-      console.error(err.message)
-      res.status(500).send('Server Error!')
+      sendError(res, err)
    }
-})
-
-module.exports = router
+}

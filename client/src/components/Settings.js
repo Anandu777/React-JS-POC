@@ -49,7 +49,7 @@ const Settings = () => {
       <Container>
          <Header>SETTINGS</Header>
          <Hr />
-         <StyledLink to='/changepassword'>Change Password</StyledLink>
+         <StyledLink to='/change-password'>Change Password</StyledLink>
       </Container>
    )
 }

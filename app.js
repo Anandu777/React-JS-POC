@@ -20,7 +20,7 @@ mongoose.connection.on('error', (err) => {
 
 app.use(express.json())
 
-app.use(require('./routes/auth'))
-app.use(require('./routes/employee'))
+app.use(require('./routes/auth/routes.auth'))
+app.use(require('./routes/employee/routes.employee'))
 
 module.exports = app

@@ -6,7 +6,7 @@ beforeAll(setupDatabase)
 
 test('Should list employee details after getting token', async () => {
    await request(app)
-      .patch('/getemployees')
+      .patch('/get-employees')
       .set('x-auth-token', `${userOne.token}`)
       .send({
          skipCount: 5,
@@ -18,7 +18,7 @@ test('Should list employee details after getting token', async () => {
 
 test('Should not list employee details without token', async () => {
    await request(app)
-      .patch('/getemployees')
+      .patch('/get-employees')
       .send({
          skipCount: 5,
          filterValue: 'All',
